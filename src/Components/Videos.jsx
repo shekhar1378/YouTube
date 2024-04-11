@@ -4,12 +4,14 @@ import VideoCard from "./VideoCard";
 import ChannelCard from "./ChannelCard";
 import Loader from "./Loader";
 
+// if (!videos?.length) return <Loader />;
 const Videos = ({ videos, direction }) => {
-  if (!videos?.length) return <Loader />;
 
+  if (!videos) return <Loader />;
+  
   return (
     <Stack
-      direction= "row"
+      direction={direction || "row"}
       flexWrap="wrap"
       justifyContent="start"
       alignItems="start"
@@ -17,9 +19,9 @@ const Videos = ({ videos, direction }) => {
     >
       {videos.map((item, idx) => (
         <Box key={idx}>
-            {item.id.videoId && <VideoCard video={item} />}
-            {item.id.channelId && <ChannelCard channelDetail={item} />}
-      </Box>
+          {item.id.videoId && <VideoCard video={item} />}
+          {item.id.channelId && <ChannelCard channelDetail={item} />}
+        </Box>
       ))}
     </Stack>
   );

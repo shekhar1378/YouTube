@@ -5,6 +5,7 @@ import { fetchFromAPI } from "./Utils/fetchFromAPI";
 import Videos from "./Videos"
 import Sidebar from "./Sidebar"
 
+
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState(null);
@@ -31,7 +32,7 @@ const Feed = () => {
           {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
-        <Videos videos={[videos]} />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );
